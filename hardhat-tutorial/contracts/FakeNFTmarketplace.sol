@@ -9,21 +9,15 @@ contract FakeNFTmarketplace {
         require(msg.value == nftprice, "This NFT cost 0.1 ether");
         tokens[_tokenID] = msg.sender;
     }
-    function getPrice() external view returns(uint256){
+
+    function getPrice() external view returns (uint256) {
         return nftprice;
     }
 
-
-    
-     function available (uint256 _tokenID) external view returns (bool) {
-         if(tokens[_tokenID]==address(0)){
-             return true;
-         }
-         return false;
+    function available(uint256 _tokenID) external view returns (bool) {
+        if (tokens[_tokenID] == address(0)) {
+            return true;
+        }
+        return false;
     }
-
-
 }
-
-
-
